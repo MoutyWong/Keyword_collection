@@ -46,5 +46,5 @@ while True:
 		cursor.execute('insert into words (word) values (%s)', [new_word])
 	conn.commit()
 	cursor.close()
-	time.sleep()
+	time.sleep(1)
 conn.close()
