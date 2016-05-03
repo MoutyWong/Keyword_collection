@@ -19,13 +19,13 @@ while True:
 	cursor = conn.cursor()
 	cursor.execute('select word from words where id = %s', (word_id,))
 	values = cursor.fetchall()
+	print(word_id, values[0][0])
 	cursor.close()
 	word_id = word_id + 1
 	if word_id >10:
 		break
 		
 	word = urllib.request.quote(values[0][0])
-	print(word_id - 1, word)
 	url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ word+'&json=1&p=3&sid=18285_1444_17758_19671_19781_19806_19900_19558_19808_19842_19901_19860_15733_11535&req=2&csor=8&pwd=&cb=jQuery110208427646549311438_1462241281514&_=1462241281525'
 	headers = {
 		'GET': url,
